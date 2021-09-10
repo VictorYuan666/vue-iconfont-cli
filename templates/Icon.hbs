@@ -1,0 +1,26 @@
+<!-- eslint-disable -->
+<template>
+  <svg viewBox="0 0 1024 1024" :width="size" :height="size">
+    {{#each svgPaths}}
+    <path
+      d="{{d}}"
+      :fill="getIconColor('{{fill}}',{{@index}})" 
+    />
+    {{/each}}
+  </svg>
+</template>
+<script setup lang="ts">
+import { defineProps, withDefaults, toRefs } from 'vue';
+
+const props = withDefaults(defineProps < { color: string | string[]; size: number | string } > (), {
+  size: 24,
+});
+
+const { color, size } = toRefs(props);
+const getIconColor = (fillColor, index) => {
+  if (color.value) {
+    return typeof color.value === 'string' ? color.value : color.value[index];
+  }
+  return fillColor || '#333';
+};
+</script>

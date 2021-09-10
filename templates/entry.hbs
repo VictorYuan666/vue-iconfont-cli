@@ -1,0 +1,25 @@
+<!-- eslint-disable -->
+<template>
+  <component :is="config[props.name]" :color="props.color" :size="props.size" />
+</template>
+<script setup lang="ts">
+import { defineProps } from 'vue';
+{{#each iconNameList }}
+import {{component}} from './{{component}}.vue';
+{{/each}}
+
+const props = defineProps<{
+  name:
+  {{#each iconNameList }}
+    | '{{name}}'
+  {{/each}};
+  color?: string | string[];
+  size?: string | number;
+}>();
+
+const config = {
+  {{#each iconNameList }}
+  '{{name}}': {{component}},
+  {{/each}}
+};
+</script>
