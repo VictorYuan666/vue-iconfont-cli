@@ -10,9 +10,9 @@
 2. 图标支持多色
 3. 本地管理组件，体积小巧，无需像font class一样请求字体文件
 
-## 使用
+## 安装
 
-**全局使用**
+**全局安装**
 
 1. 全局安装命令行
 
@@ -33,7 +33,7 @@
    iconfont-cli g
    ~~~
 
-#### 安装
+**项目中安装**
 
 1. 项目中添加依赖
 
@@ -62,7 +62,7 @@
    npm run icon-g
    ~~~
 
-## 使用
+## 使用icon组件
 
 默认生成到 src/components/iconfont 下，建议在 components/index.ts文件导出组件
 
@@ -79,8 +79,8 @@ import { Icon } from '@/components'
 
 ~~~
 
-多色color可以传颜色字符串的数组
+多色color属性可以传颜色字符串的数组
 
 ~~~
-<Icon name="复制iconfont的组件名" color="red" size="18" />
+<Icon name="复制iconfont的组件名" :color="['red','green']" size="18" />
 ~~~
